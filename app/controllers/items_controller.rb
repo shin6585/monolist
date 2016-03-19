@@ -4,12 +4,14 @@ class ItemsController < ApplicationController
 
   def new
     if params[:q]
-      response = Amazon::Ecs.item_search(params[:q] , 
+      response = Amazon::Ecs.item_search(params[:q], 
                                   :search_index => 'All' , 
                                   :response_group => 'Medium' , 
                                   :country => 'jp')
       @amazon_items = response.items
+      sleep(1)
     end
+    
   end
 
   def show
