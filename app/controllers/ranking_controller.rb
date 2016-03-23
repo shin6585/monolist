@@ -1,10 +1,13 @@
 class RankingController < ApplicationController
     def have
-        @items = Have.group(:item_id).order('count_id desc').count('id')
+        itemkeys = Have.group(:item_id).order('count_id desc').limit(10).count(:id).keys
+        @rankings = Item.find(itemkeys) 
+        @i = 1
     end
     
     def want
-        @items = Want.group(:item_id).order('count_id desc').count('id')
+        itemkeys = Want.group(:item_id).order('count_id desc').limit(10).count(:id).keys
+        @rankings = Item.find(itemkeys)
+        @i = 1
     end
-    
 end

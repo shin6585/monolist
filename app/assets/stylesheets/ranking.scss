@@ -1,0 +1,27 @@
+.ranktitle {
+    text-align: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: #fff;
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    padding: 1em 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.absolute p {
+    margin: 0;
+    padding: 0 0.8em;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
