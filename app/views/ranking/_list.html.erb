@@ -1,13 +1,13 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
-    <% items.each do |item| %>
+    <% itemkeys.each_with_index do |key, value| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap relative">
-            <% if item.large_image.present? %>
-              <%= image_tag(item.large_image , alt: item.title) %>
+            <% if Item.find(key).large_image.present? %>
+              <%= image_tag(Item.find(key).large_image , alt: Item.find(key).title) %>
             <% else %>
-              <%= image_tag("no-image.png" , alt: item.title) %>
+              <%= image_tag("no-image.png" , alt: Item.find(key).title) %>
             <% end %>
                 <p class="absolute"><%= @i %>位</p>
                 <% @i = @i + 1 %>
@@ -15,10 +15,10 @@
         </div>
         <div class="detail">
           <p class="title">
-            <%= item.title %>
+            <%= Item.find(key).title %>
           </p>
         </div>
-        <%= render 'items/action' , item: item if logged_in? %>
+        <%= render 'items/action' , item: Item.find(key) if logged_in? %>
       </div>
     <% end %>
   </div>
