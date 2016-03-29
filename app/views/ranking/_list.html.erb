@@ -9,8 +9,7 @@
             <% else %>
               <%= image_tag("no-image.png" , alt: Item.find(key).title) %>
             <% end %>
-                <p class="absolute"><%= @i %>位</p>
-                <% @i = @i + 1 %>
+                <p class="absolute"><%= value +1 %>位</p>
           </div>
         </div>
         <div class="detail">
