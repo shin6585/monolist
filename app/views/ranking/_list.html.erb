@@ -4,20 +4,20 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap relative">
-            <% if Item.find(key).large_image.present? %>
-              <%= image_tag(Item.find(key).large_image , alt: Item.find(key).title) %>
+            <% if key.large_image.present? %>
+              <%= image_tag(key.large_image , alt: key.title) %>
             <% else %>
-              <%= image_tag("no-image.png" , alt: Item.find(key).title) %>
+              <%= image_tag("no-image.png" , alt: key.title) %>
             <% end %>
                 <p class="absolute"><%= value +1 %>位</p>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <%= Item.find(key).title %>
+            <%= key.title %>
           </p>
         </div>
-        <%= render 'items/action' , item: Item.find(key) if logged_in? %>
+        <%= render 'items/action' , item: key if logged_in? %>
       </div>
     <% end %>
   </div>
